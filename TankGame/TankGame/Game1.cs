@@ -59,6 +59,9 @@ namespace TankGame
         //to display the text
         SpriteFont font;
 
+        //import table image
+        Texture2D table;
+
 
         public Game1()
         {
@@ -120,6 +123,9 @@ namespace TankGame
             //import font 
             font = Content.Load<SpriteFont>("myFont");
 
+            //import table image
+            table = Content.Load<Texture2D>("table");
+
             //load the map content images brick/water/stone/life/coin
             brick = Content.Load<Texture2D>("brick");
             water = Content.Load<Texture2D>("water");
@@ -176,6 +182,8 @@ namespace TankGame
         {
             Rectangle screenRectangle = new Rectangle(0, 0, gridWidth, gridHeight);
             spriteBatch.Draw(backgroundTexture, screenRectangle, Color.White);
+            Rectangle screenRectangle2 = new Rectangle(550, 100, 400, 200);
+            spriteBatch.Draw(table, screenRectangle2 , Color.White);
 
         }
 

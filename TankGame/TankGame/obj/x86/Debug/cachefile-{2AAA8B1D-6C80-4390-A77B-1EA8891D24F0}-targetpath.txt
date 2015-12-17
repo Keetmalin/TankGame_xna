@@ -6,3 +6,4 @@ Content\stone.xnb
 Content\water.xnb
 Content\tank.xnb
 Content\myFont.xnb
+Content\table.xnb
