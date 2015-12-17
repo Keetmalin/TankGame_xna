@@ -56,6 +56,9 @@ namespace TankGame
         //will store details of the five players
         private string[,] playerDetails;
 
+        //to display the text
+        SpriteFont font;
+
 
         public Game1()
         {
@@ -114,6 +117,9 @@ namespace TankGame
 
             SetUpPlayers();
 
+            //import font 
+            font = Content.Load<SpriteFont>("myFont");
+
             //load the map content images brick/water/stone/life/coin
             brick = Content.Load<Texture2D>("brick");
             water = Content.Load<Texture2D>("water");
@@ -121,7 +127,7 @@ namespace TankGame
             life = Content.Load<Texture2D>("life");
             coin = Content.Load<Texture2D>("coin");
             tank = Content.Load<Texture2D>("tank");
-            networkClient.Sender("JOIN#");
+            //networkClient.Sender("JOIN#");
 
 
                     
@@ -159,6 +165,7 @@ namespace TankGame
             DrawScenery();
             DrawPlayers();
             updateMap();
+            DrawText();
             spriteBatch.End();
             
 
@@ -284,6 +291,14 @@ namespace TankGame
             //{
             //    players[index].Angle = MathHelper.ToRadians(270);
             //}
+        }
+
+        private void DrawText()
+        {
+            
+            
+            spriteBatch.DrawString(font, "Cannon angle: " , new Vector2(20, 20), Color.White);
+            spriteBatch.DrawString(font, "Cannon power: " , new Vector2(20, 45), Color.White);
         }
     }
 }
