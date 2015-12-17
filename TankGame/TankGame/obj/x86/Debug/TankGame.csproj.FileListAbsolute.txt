@@ -6,8 +6,6 @@ C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\Tan
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\obj\x86\Debug\TankGame.pdb
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\background.xnb
 D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\background.xnb
-D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\tankImage.xnb
-D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\brickWall.xnb
 D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\TankGame.exe
 D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\TankGame.pdb
 D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\obj\x86\Debug\TankGame.csprojResolveAssemblyReference.cache
@@ -31,3 +29,8 @@ C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\Tan
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\life.xnb
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\stone.xnb
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\water.xnb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\brick.xnb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\coin.xnb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\life.xnb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\stone.xnb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\water.xnb

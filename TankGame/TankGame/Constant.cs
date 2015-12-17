@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tanks_Client
+namespace TankGame
 {
     /// <summary>
     /// Defined Constants of the Game

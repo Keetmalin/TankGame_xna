@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Tanks_Client.DataType;
 
-namespace Tanks_Client
+namespace TankGame
 {
     class ClientClass
     {

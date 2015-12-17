@@ -72,6 +72,8 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\AI.cs" />
+    <Compile Include="AI\PathFinder.cs" />
     <Compile Include="ClientClass.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="DataType\MsgObject.cs" />
