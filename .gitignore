@@ -1,7 +1,3 @@
-TankGame.v12.suo/
-TankGame/TankGame/bin/
-TankGame/TankGame/obj/
-TankGame/TankGameContent/bin/
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -49,6 +45,3 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-
-#
-TankGame/TankGame/bin/x86/Debug/TankGame.exe

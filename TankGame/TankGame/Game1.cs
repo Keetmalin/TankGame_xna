@@ -33,9 +33,9 @@ namespace TankGame
         int gridWidth;
         int gridHeight;
 
-        Texture2D tankImage;
+        Texture2D tank;
         PlayerData[] players;
-        int numberOfPlayers = 4;
+        int numberOfPlayers = 5;
 
         //create textures for brick/water/stone/life/coin
         Texture2D brick;
@@ -108,6 +108,11 @@ namespace TankGame
             stone = Content.Load<Texture2D>("stone");
             life = Content.Load<Texture2D>("life");
             coin = Content.Load<Texture2D>("coin");
+            tank = Content.Load<Texture2D>("tank");
+            networkClient.Sender("JOIN#");
+
+
+                    
         }
 
 
@@ -124,7 +129,9 @@ namespace TankGame
 
             // TODO: Add your update logic here
             map = parser.getMap();
-            updateMap();
+            
+
+            startGame();
 
             base.Update(gameTime);
         }
@@ -138,8 +145,9 @@ namespace TankGame
             spriteBatch.Begin();
             DrawScenery();
             DrawPlayers();
+            updateMap();
             spriteBatch.End();
-
+            
 
             base.Draw(gameTime);
         }
@@ -153,31 +161,24 @@ namespace TankGame
 
         private void SetUpPlayers()
         {
-            Color[] playerColors = new Color[10];
+            Color[] playerColors = new Color[5];
             playerColors[0] = Color.Red;
             playerColors[1] = Color.Green;
             playerColors[2] = Color.Blue;
             playerColors[3] = Color.Purple;
             playerColors[4] = Color.Orange;
-            playerColors[5] = Color.Indigo;
-            playerColors[6] = Color.Yellow;
-            playerColors[7] = Color.SaddleBrown;
-            playerColors[8] = Color.Tomato;
-            playerColors[9] = Color.Turquoise;
+  
 
             players = new PlayerData[numberOfPlayers];
             for (int i = 0; i < numberOfPlayers; i++)
             {
-                players[i].IsAlive = true;
+                players[i].IsAlive = false;
                 players[i].Color = playerColors[i];
                 players[i].Angle = MathHelper.ToRadians(90);
                 players[i].Power = 100;
             }
 
-            players[0].Position = new Vector2(100, 193);
-            players[1].Position = new Vector2(200, 212);
-            players[2].Position = new Vector2(300, 361);
-            players[3].Position = new Vector2(400, 164);
+
         }
 
         private void DrawPlayers()
@@ -187,7 +188,7 @@ namespace TankGame
             {
                 if (player.IsAlive)
                 {
-                    //spriteBatch.Draw(water, player.Position, player.Color);
+                    spriteBatch.Draw(tank, player.Position, player.Color);
                 }
             }
         }
@@ -200,19 +201,54 @@ namespace TankGame
                 {
 
                     Vector2 position = new Vector2(i * 50, j * 50);
-                    //if (map[i, j] == Constant.EMPTY) b = PaintEmptyCell;
+                    
                     if (map[i, j] == Constant.WATER) spriteBatch.Draw(water, position, Color.White);
                     if (map[i, j] == Constant.STONE) spriteBatch.Draw(stone, position, Color.White);
                     if (map[i, j] == Constant.BRICK) spriteBatch.Draw(brick, position, Color.White);
                     if (map[i, j] == Constant.LIFE) spriteBatch.Draw(life, position, Color.White);
                     if (map[i, j] == Constant.COIN) spriteBatch.Draw(coin, position, Color.White);
-                    //if (map[i, j] == Constant.PLAYER_0) b = PaintP0Cell;
-                    //if (map[i, j] == Constant.PLAYER_1) b = PaintP1Cell;
-                    //if (map[i, j] == Constant.PLAYER_2) b = PaintP2Cell;
-                    //if (map[i, j] == Constant.PLAYER_3) b = PaintP3Cell;
-                    //if (map[i, j] == Constant.PLAYER_4) b = PaintP4Cell;
+
+                    //for (int k = 0; k < numberOfPlayers; k++)
+                    //{
+                    //    players[k].IsAlive = false;
+                    //}
+
+                    if (map[i, j] == Constant.PLAYER_0) { players[0].Position = position; players[0].IsAlive = true; };
+                    if (map[i, j] == Constant.PLAYER_1) { players[1].Position = position; players[1].IsAlive = true; };
+                    if (map[i, j] == Constant.PLAYER_2) { players[2].Position = position; players[2].IsAlive = true; };
+                    if (map[i, j] == Constant.PLAYER_3) { players[3].Position = position; players[3].IsAlive = true; };
+                    if (map[i, j] == Constant.PLAYER_4) { players[4].Position = position; players[4].IsAlive = true; };
+ 
 
                 }
+            }
+        }
+
+        private void startGame() {
+            KeyboardState keybState = Keyboard.GetState();
+            if (keybState.IsKeyDown(Keys.Space))
+                networkClient.Sender("JOIN#");
+                
+        }
+
+        private void updateMoves() {
+            
+            String nextCommand = "";
+
+            if (nextCommand == Constant.UP) {
+                networkClient.Sender("UP#");
+            }
+            if (nextCommand == Constant.DOWN) {
+                networkClient.Sender("DOWN#");
+            }
+            if (nextCommand == Constant.LEFT) {
+                networkClient.Sender("LEFT#");
+            }
+            if (nextCommand == Constant.RIGHT) {
+                networkClient.Sender("RIGHT#");
+            }
+            if (nextCommand == Constant.SHOOT) {
+                networkClient.Sender("SHOOT#");
             }
         }
     }
