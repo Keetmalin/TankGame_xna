@@ -92,6 +92,17 @@ namespace TankGame
                         messageDeoder(msg);
                     }
 
+                    //clears the coins list and update-Shanika
+                    coinLocations.Clear();
+                    for (int i = 0; i < Constant.MAP_SIZE; i++)
+                    {
+                        for (int j = 0; j < Constant.MAP_SIZE; j++)
+                        {
+                            if(map[i,j]=="C")
+                                coinLocations.Add((10 * ToInt32(i)) + ToInt32(j));
+                        }
+                    }
+
                 }
 
             }
@@ -179,7 +190,7 @@ namespace TankGame
                     map[Int32.Parse(x), Int32.Parse(y)] = playerName;
 
                     //myPlayer location
-                    myLocatoin = (10 * ToInt32(x)) + ToInt32(y);
+                    myLocation = (10 * ToInt32(x)) + ToInt32(y);
 
 
                     int p = 0;
@@ -337,7 +348,7 @@ namespace TankGame
                 map[Int32.Parse(x), Int32.Parse(y)] = Constant.COIN;
                 mapHealth[Int32.Parse(x), Int32.Parse(y)] = value;
                 
-                coinLocations.Add((10 * ToInt32(x)) + ToInt32(y));
+                
             }
             if (identifier.Equals("L"))
             {
