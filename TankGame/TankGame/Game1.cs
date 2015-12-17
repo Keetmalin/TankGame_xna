@@ -174,7 +174,7 @@ namespace TankGame
             {
                 players[i].IsAlive = false;
                 players[i].Color = playerColors[i];
-                players[i].Angle = MathHelper.ToRadians(90);
+                players[i].Angle = MathHelper.ToRadians(180);
                 players[i].Power = 100;
             }
 
@@ -188,7 +188,7 @@ namespace TankGame
             {
                 if (player.IsAlive)
                 {
-                    spriteBatch.Draw(tank, player.Position, player.Color);
+                    spriteBatch.Draw(tank, player.Position, null, player.Color, player.Angle, new Vector2(0, tank.Height), 1, SpriteEffects.None, 1);
                 }
             }
         }
@@ -247,7 +247,7 @@ namespace TankGame
             if (nextCommand == Constant.RIGHT) {
                 networkClient.Sender("RIGHT#");
             }
-            if (nextCommand == Constant.SHOOT) {
+            if (nextCommand == Constant.SHOOT) { 
                 networkClient.Sender("SHOOT#");
             }
         }
