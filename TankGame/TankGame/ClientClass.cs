@@ -50,7 +50,7 @@ namespace Tanks_Client
             stream.Close();
             client.Close();
             //thread will initiate only if the JOIN# msgs is passed
-            if (msg.Equals("JOIN#"))
+            if (msg.Equals("JOIN#") && !thread.IsAlive)
             {
                 thread.Start();
             }

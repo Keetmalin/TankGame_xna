@@ -55,6 +55,15 @@
       <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\water.xnb</Output>
       <Time>2015-12-17T17:49:48+05:30</Time>
     </Item>
+    <Item>
+      <Source>tank.jpg</Source>
+      <Name>tank</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\tank.xnb</Output>
+      <Time>2015-12-17T19:49:01.3266621+05:30</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{2AAA8B1D-6C80-4390-A77B-1EA8891D24F0}</ContentProjectGUID>
