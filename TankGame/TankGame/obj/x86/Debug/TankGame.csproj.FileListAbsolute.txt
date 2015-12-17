@@ -5,8 +5,22 @@ C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\Tan
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\obj\x86\Debug\TankGame.exe
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\obj\x86\Debug\TankGame.pdb
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\background.xnb
+<<<<<<< HEAD
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\life.xnb
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\coin.xnb
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\water.xnb
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\brick.xnb
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\stone.xnb
+=======
+C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\tankImage.xnb
+C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\brickWall.xnb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\background.xnb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\tankImage.xnb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\brickWall.xnb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\TankGame.exe
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\TankGame.pdb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\obj\x86\Debug\TankGame.csprojResolveAssemblyReference.cache
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\obj\x86\Debug\TankGame.exe
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\obj\x86\Debug\TankGame.pdb
+>>>>>>> 22e2ef4bdb3216b3d3dabeb1938b34aa5c069a0a
