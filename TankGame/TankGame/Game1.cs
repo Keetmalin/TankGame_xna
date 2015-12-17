@@ -201,7 +201,8 @@ namespace TankGame
             {
                 if (player.IsAlive)
                 {
-                    spriteBatch.Draw(tank, player.Position, null, player.Color, player.Angle, new Vector2(0, tank.Height), 1, SpriteEffects.None, 1);
+                    //spriteBatch.Draw(tank, player.Position,  player.Color);
+                    spriteBatch.Draw(tank, player.Position, null, player.Color, player.Angle, new Vector2(0, 0), 1, SpriteEffects.None, 1);
                 }
             }
         }
@@ -227,11 +228,11 @@ namespace TankGame
                     //}
 
 
-                    if (map[i, j] == Constant.PLAYER_0) { players[0].Position = position; players[0].IsAlive = true; setPlayerDirection(playerDetails[0,0] , players[0]); };
-                    if (map[i, j] == Constant.PLAYER_1) { players[1].Position = position; players[1].IsAlive = true; setPlayerDirection(playerDetails[1,0] , players[1]};
-                    if (map[i, j] == Constant.PLAYER_2) { players[2].Position = position; players[2].IsAlive = true; setPlayerDirection(playerDetails[2,0] , players[2]};
-                    if (map[i, j] == Constant.PLAYER_3) { players[3].Position = position; players[3].IsAlive = true; setPlayerDirection(playerDetails[3,0] , players[3]};
-                    if (map[i, j] == Constant.PLAYER_4) { players[4].Position = position; players[4].IsAlive = true; setPlayerDirection(playerDetails[4,0] , players[4]};
+                    if (map[i, j] == Constant.PLAYER_0) { players[0].Position = position; players[0].IsAlive = true; setPlayerDirection(playerDetails[0,0] , 0); };
+                    if (map[i, j] == Constant.PLAYER_1) { players[1].Position = position; players[1].IsAlive = true; setPlayerDirection(playerDetails[1,0] , 1); };
+                    if (map[i, j] == Constant.PLAYER_2) { players[2].Position = position; players[2].IsAlive = true; setPlayerDirection(playerDetails[2,0] , 2); };
+                    if (map[i, j] == Constant.PLAYER_3) { players[3].Position = position; players[3].IsAlive = true; setPlayerDirection(playerDetails[3,0] , 3); };
+                    if (map[i, j] == Constant.PLAYER_4) { players[4].Position = position; players[4].IsAlive = true; setPlayerDirection(playerDetails[4,0] , 4); };
  
 
                 }
@@ -266,23 +267,23 @@ namespace TankGame
             }
         }
 
-        private void setPlayerDirection(String direction , PlayerData player) {
-            if (direction.Equals(Constant.NORTH))
-            {
-                player.Angle = MathHelper.ToRadians(0);
-            }
-            if (direction.Equals(Constant.EAST))
-            {
-                player.Angle = MathHelper.ToRadians(90);
-            }
-            if (direction.Equals(Constant.SOUTH))
-            {
-                player.Angle = MathHelper.ToRadians(180);
-            }
-            if (direction.Equals(Constant.WEST))
-            {
-                player.Angle = MathHelper.ToRadians(270);
-            }
+        private void setPlayerDirection(String direction , int index) {
+            //if (direction.Equals(Constant.NORTH))
+            //{
+            //    players[index].Angle = MathHelper.ToRadians(0);
+            //}
+            //if (direction.Equals(Constant.EAST))
+            //{
+            //    players[index].Angle = MathHelper.ToRadians(90);
+            //}
+            //if (direction.Equals(Constant.SOUTH))
+            //{
+            //    players[index].Angle = MathHelper.ToRadians(180);
+            //}
+            //if (direction.Equals(Constant.WEST))
+            //{
+            //    players[index].Angle = MathHelper.ToRadians(270);
+            //}
         }
     }
 }
