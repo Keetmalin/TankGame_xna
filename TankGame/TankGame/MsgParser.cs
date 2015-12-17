@@ -181,22 +181,22 @@ namespace TankGame
                     else if (playerName.Equals(Constant.PLAYER_3)) { p = 3; }
                     else if (playerName.Equals(Constant.PLAYER_4)) { p = 4; }
 
-                    if (direction.Equals(Constant.NORTH))
-                    {
-                        direction = "NORTH";
-                    }
-                    if (direction.Equals(Constant.EAST))
-                    {
-                        direction = "EAST";
-                    }
-                    if (direction.Equals(Constant.SOUTH))
-                    {
-                        direction = "SOUTH";
-                    }
-                    if (direction.Equals(Constant.WEST))
-                    {
-                        direction = "WEST";
-                    }
+                    //if (direction.Equals(Constant.NORTH))
+                    //{
+                    //    direction = "NORTH";
+                    //}
+                    //if (direction.Equals(Constant.EAST))
+                    //{
+                    //    direction = "EAST";
+                    //}
+                    //if (direction.Equals(Constant.SOUTH))
+                    //{
+                    //    direction = "SOUTH";
+                    //}
+                    //if (direction.Equals(Constant.WEST))
+                    //{
+                    //    direction = "WEST";
+                    //}
 
                     playerDetails[p, 0] = direction;
 
@@ -272,22 +272,22 @@ namespace TankGame
                     else if (playerName.Equals(Constant.PLAYER_3)) { p = 3; }
                     else if (playerName.Equals(Constant.PLAYER_4)) { p = 4; }
 
-                    if (direction.Equals(Constant.NORTH))
-                    {
-                        direction = "NORTH";
-                    }
-                    if (direction.Equals(Constant.EAST))
-                    {
-                        direction = "EAST";
-                    }
-                    if (direction.Equals(Constant.SOUTH))
-                    {
-                        direction = "SOUTH";
-                    }
-                    if (direction.Equals(Constant.WEST))
-                    {
-                        direction = "WEST";
-                    }
+                    //if (direction.Equals(Constant.NORTH))
+                    //{
+                    //    direction = "NORTH";
+                    //}
+                    //if (direction.Equals(Constant.EAST))
+                    //{
+                    //    direction = "EAST";
+                    //}
+                    //if (direction.Equals(Constant.SOUTH))
+                    //{
+                    //    direction = "SOUTH";
+                    //}
+                    //if (direction.Equals(Constant.WEST))
+                    //{
+                    //    direction = "WEST";
+                    //}
 
                     playerDetails[p, 0] = direction;
                     playerDetails[p, 1] = shot;

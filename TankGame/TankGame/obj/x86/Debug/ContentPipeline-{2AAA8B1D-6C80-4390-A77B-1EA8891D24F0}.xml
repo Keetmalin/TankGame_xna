@@ -64,6 +64,15 @@
       <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\tank.xnb</Output>
       <Time>2015-12-17T19:49:01.3266621+05:30</Time>
     </Item>
+    <Item>
+      <Source>myFont.spritefont</Source>
+      <Name>myFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\myFont.xnb</Output>
+      <Time>2015-12-17T21:31:43.4826565+05:30</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{2AAA8B1D-6C80-4390-A77B-1EA8891D24F0}</ContentProjectGUID>
