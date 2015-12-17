@@ -133,7 +133,7 @@ namespace TankGame
             life = Content.Load<Texture2D>("life");
             coin = Content.Load<Texture2D>("coin");
             tank = Content.Load<Texture2D>("tank");
-            //networkClient.Sender("JOIN#");
+            networkClient.Sender("JOIN#");
 
 
                     
@@ -171,7 +171,7 @@ namespace TankGame
             DrawScenery();
             DrawPlayers();
             updateMap();
-            DrawText();
+            updateTable();
             spriteBatch.End();
             
 
@@ -283,30 +283,40 @@ namespace TankGame
         }
 
         private void setPlayerDirection(String direction , int index) {
-            //if (direction.Equals(Constant.NORTH))
-            //{
-            //    players[index].Angle = MathHelper.ToRadians(0);
-            //}
-            //if (direction.Equals(Constant.EAST))
-            //{
-            //    players[index].Angle = MathHelper.ToRadians(90);
-            //}
-            //if (direction.Equals(Constant.SOUTH))
-            //{
-            //    players[index].Angle = MathHelper.ToRadians(180);
-            //}
-            //if (direction.Equals(Constant.WEST))
-            //{
-            //    players[index].Angle = MathHelper.ToRadians(270);
-            //}
+            if (direction.Equals(Constant.NORTH))
+            {
+                players[index].Angle = MathHelper.ToRadians(0);
+            }
+            if (direction.Equals(Constant.EAST))
+            {
+                players[index].Angle = MathHelper.ToRadians(90);
+            }
+            if (direction.Equals(Constant.SOUTH))
+            {
+                players[index].Angle = MathHelper.ToRadians(180);
+            }
+            if (direction.Equals(Constant.WEST))
+            {
+                players[index].Angle = MathHelper.ToRadians(270);
+            }
         }
 
-        private void DrawText()
+        private void updateTable()
         {
             
             
-            spriteBatch.DrawString(font, "Cannon angle: " , new Vector2(20, 20), Color.White);
-            spriteBatch.DrawString(font, "Cannon power: " , new Vector2(20, 45), Color.White);
+            //spriteBatch.DrawString(font, "Cannon angle: " , new Vector2(600, 100), Color.Blue);
+            //spriteBatch.DrawString(font, "Cannon power: ", new Vector2(600, 200), Color.Blue);
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    spriteBatch.DrawString(font, playerDetails[j, i], new Vector2(625 + 68 * i, 152 + 28 * j), Color.Blue);
+                }
+            }
         }
+
+
     }
 }
