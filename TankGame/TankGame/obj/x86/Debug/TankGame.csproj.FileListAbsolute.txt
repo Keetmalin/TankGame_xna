@@ -7,3 +7,12 @@ C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\Tan
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\background.xnb
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\tankImage.xnb
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\brickWall.xnb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\background.xnb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\tankImage.xnb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\brickWall.xnb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\TankGame.exe
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\TankGame.pdb
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\obj\x86\Debug\TankGame.csprojResolveAssemblyReference.cache
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\obj\x86\Debug\TankGame.exe
+D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\obj\x86\Debug\TankGame.pdb
