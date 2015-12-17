@@ -35,7 +35,7 @@ namespace TankGame
         private Boolean gameRunning = true;
 
 
-        public static int myLocatoin = 0;
+        public static int myLocation;
         public static List<int> coinLocations;
 
         //constructor for MsgParser class

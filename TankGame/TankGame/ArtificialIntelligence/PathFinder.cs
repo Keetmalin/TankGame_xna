@@ -7,11 +7,12 @@ namespace TankGame.ArtificialIntelligence
 {
     class PathFinder
     {
-        public static int playerLocatoin=0;
+        public static int myLocation;
         public static List<int> coinLocations;
         private static string[,] map;
 
-        public static List<int> getPath(int from, int to)
+        //-------Method to find shortest path
+        public static List<int> findPath(int from, int to)
         {
             List<int> path = new List<int>();
 
@@ -29,10 +30,10 @@ namespace TankGame.ArtificialIntelligence
                 int block = queue.Dequeue();
                 int i = block / 10, j = block % 10;
 
-                if (map[j, i] == "W" || map[j, i] == "S" || map[j, i] == "B")
+                if (map[i,j] == "W" || map[i,j] == "S" || map[i,j] == "B")
                 {
                     parents[block] = -2;
-                    continue;//do no add childs if it is a blocked cell
+                    continue;
                 }
 
                 if (i > 0)
@@ -86,38 +87,6 @@ namespace TankGame.ArtificialIntelligence
             }
             path.Reverse();
             return path;
-        }
-
-        public static String getMove()
-        {
-
-            coinLocations.Add(11);
-            //Find the closest coin
-            int currentLoc = playerLocatoin;
-            int minLoc = currentLoc;
-            int minsDist = 100;
-            foreach (int coinLoc in coinLocations)
-            {
-                int dist = getPath(currentLoc, coinLoc).Count;
-                if (dist < minsDist)
-                {
-                    minLoc = coinLoc;
-                    minsDist = dist;
-                }
-            }
-
-
-            int from = playerLocatoin;
-            int to = minLoc;
-
-            List<int> path = getPath(from, to);
-
-            Console.WriteLine(path[0]);
-            //choosing the side to turn
-            if (path[0] - from == 10) return "RIGHT#";
-            if (path[0] - from == -10) return "LEFT#";
-            if (path[0] - from == 1) return "DOWN#";
-            else return "UP#";
         }
     }
 }
