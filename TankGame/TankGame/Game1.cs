@@ -29,9 +29,13 @@ namespace TankGame
         GraphicsDevice device;
 
         Texture2D backgroundTexture;
+        Texture2D background1;
 
         int gridWidth;
         int gridHeight;
+        int screenWidth;
+        int screenHeight;
+
 
         Texture2D tank;
         PlayerData[] players;
@@ -74,7 +78,7 @@ namespace TankGame
         {
             // TODO: Add your initialization logic here
             graphics.PreferredBackBufferWidth = 1000;
-            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferHeight = 650;
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
             Window.Title = "Armored Warfare";
@@ -113,6 +117,10 @@ namespace TankGame
             // TODO: use this.Content to load your game content here
             device = graphics.GraphicsDevice;
             backgroundTexture = Content.Load<Texture2D>("background");
+
+            screenWidth = device.PresentationParameters.BackBufferWidth;
+            screenHeight = device.PresentationParameters.BackBufferHeight;
+            background1 = Content.Load<Texture2D>("background1");
             //foregroundTexture = Content.Load<Texture2D>("foreground");
             gridWidth = 500;
             gridHeight = 500;
@@ -133,7 +141,7 @@ namespace TankGame
             life = Content.Load<Texture2D>("life");
             coin = Content.Load<Texture2D>("coin");
             tank = Content.Load<Texture2D>("tank");
-            networkClient.Sender("JOIN#");
+            //networkClient.Sender("JOIN#");
 
 
                     
@@ -180,9 +188,14 @@ namespace TankGame
 
         private void DrawScenery()
         {
-            Rectangle screenRectangle = new Rectangle(0, 0, gridWidth, gridHeight);
+
+            Rectangle screenRectangle3 = new Rectangle(0, -50, screenWidth, screenHeight+50);
+            spriteBatch.Draw(background1, screenRectangle3, Color.White);
+
+            Rectangle screenRectangle = new Rectangle(0, 150, gridWidth, gridHeight);
             spriteBatch.Draw(backgroundTexture, screenRectangle, Color.White);
-            Rectangle screenRectangle2 = new Rectangle(550, 100, 400, 200);
+            
+            Rectangle screenRectangle2 = new Rectangle(550, 200, 400, 200);
             spriteBatch.Draw(table, screenRectangle2 , Color.White);
 
         }
@@ -229,7 +242,7 @@ namespace TankGame
                 for (int j = 0; j < 10; j++)
                 {
 
-                    Vector2 position = new Vector2(i * 50, j * 50);
+                    Vector2 position = new Vector2(i * 50, j * 50 +50);
                     
                     if (map[i, j] == Constant.WATER) spriteBatch.Draw(water, position, Color.White);
                     if (map[i, j] == Constant.STONE) spriteBatch.Draw(stone, position, Color.White);
@@ -283,22 +296,22 @@ namespace TankGame
         }
 
         private void setPlayerDirection(String direction , int index) {
-            if (direction.Equals(Constant.NORTH))
-            {
-                players[index].Angle = MathHelper.ToRadians(0);
-            }
-            if (direction.Equals(Constant.EAST))
-            {
-                players[index].Angle = MathHelper.ToRadians(90);
-            }
-            if (direction.Equals(Constant.SOUTH))
-            {
-                players[index].Angle = MathHelper.ToRadians(180);
-            }
-            if (direction.Equals(Constant.WEST))
-            {
-                players[index].Angle = MathHelper.ToRadians(270);
-            }
+            //if (direction.Equals(Constant.NORTH))
+            //{
+            //    players[index].Angle = MathHelper.ToRadians(0);
+            //}
+            //if (direction.Equals(Constant.EAST))
+            //{
+            //    players[index].Angle = MathHelper.ToRadians(90);
+            //}
+            //if (direction.Equals(Constant.SOUTH))
+            //{
+            //    players[index].Angle = MathHelper.ToRadians(180);
+            //}
+            //if (direction.Equals(Constant.WEST))
+            //{
+            //    players[index].Angle = MathHelper.ToRadians(270);
+            //}
         }
 
         private void updateTable()
@@ -312,7 +325,7 @@ namespace TankGame
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    spriteBatch.DrawString(font, playerDetails[j, i], new Vector2(625 + 68 * i, 152 + 28 * j), Color.Blue);
+                    spriteBatch.DrawString(font, playerDetails[j, i], new Vector2(625 + 68 * i, 252 + 28 * j), Color.Blue);
                 }
             }
         }

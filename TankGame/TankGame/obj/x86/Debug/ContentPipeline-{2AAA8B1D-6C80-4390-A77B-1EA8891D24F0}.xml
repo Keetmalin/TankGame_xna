@@ -2,15 +2,6 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>background.png</Source>
-      <Name>background</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2015-12-17T17:49:48+05:30</Time>
-    </Item>
-    <Item>
       <Source>brick.jpg</Source>
       <Name>brick</Name>
       <Importer>TextureImporter</Importer>
@@ -81,6 +72,24 @@
       <Options>None</Options>
       <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\table.xnb</Output>
       <Time>2015-12-17T21:44:48.9474995+05:30</Time>
+    </Item>
+    <Item>
+      <Source>background1.jpg</Source>
+      <Name>background1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\background1.xnb</Output>
+      <Time>2015-12-17T23:34:12.1672375+05:30</Time>
+    </Item>
+    <Item>
+      <Source>background.png</Source>
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2015-12-18T00:19:52.6015479+05:30</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

@@ -34,3 +34,4 @@ C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\Tan
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\tank.xnb
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\myFont.xnb
 C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\table.xnb
+C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\background1.xnb
