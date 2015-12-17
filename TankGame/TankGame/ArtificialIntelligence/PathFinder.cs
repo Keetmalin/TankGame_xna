@@ -8,8 +8,8 @@ namespace TankGame.ArtificialIntelligence
     class PathFinder
     {
         //Map ActorMap;
-        const int width = Constant.MAP_SIZE;
-        const int height = Constant.MAP_SIZE;
+        int width = Constant.MAP_SIZE;
+        int height = Constant.MAP_SIZE;
         AINode[,] map = new AINode[width, height];
         int startX, startY, endX, endY;
         List<AINode> openList, closedList;
@@ -586,4 +586,55 @@ namespace TankGame.ArtificialIntelligence
         Bullet = 10000;
     }
 
+    class AICell
+    {
+
+        public int X
+        {
+            get;
+            set;
+        }
+
+        public int Y
+        {
+            get;
+            set;
+        }
+
+        public Actors.ActorType Type
+        {
+            get;
+            set;
+        }
+
+        public DirectionConstants Direction
+        {
+            get;
+            set;
+        }
+
+        public int Health
+        {
+            get;
+            set;
+        }
+
+        public int Points
+        {
+            get;
+            set;
+        }
+
+        public int Value
+        {
+            get;
+            set;
+        }
+
+        public long LifeTime
+        {
+            get;
+            set;
+        }
+    }
 }

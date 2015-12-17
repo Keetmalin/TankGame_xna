@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="ArtificialIntelligence\AI.cs" />
     <Compile Include="ArtificialIntelligence\PathFinder.cs" />
+    <Compile Include="ArtificialIntelligence\Point.cs" />
     <Compile Include="ClientClass.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="DataType\MsgObject.cs" />
