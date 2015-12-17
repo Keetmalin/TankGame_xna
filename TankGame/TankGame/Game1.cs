@@ -10,16 +10,17 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Tanks_Client;
 
-namespace TankGame{
+namespace TankGame
+{
 
     public struct PlayerData
-     {
-         public Vector2 Position;
-         public bool IsAlive;
-         public Color Color;
-         public float Angle;
-         public float Power;
-     }
+    {
+        public Vector2 Position;
+        public bool IsAlive;
+        public Color Color;
+        public float Angle;
+        public float Power;
+    }
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
@@ -28,7 +29,7 @@ namespace TankGame{
         GraphicsDevice device;
 
         Texture2D backgroundTexture;
-        
+
         int gridWidth;
         int gridHeight;
 
@@ -98,7 +99,7 @@ namespace TankGame{
             gridWidth = 500;
             gridHeight = 500;
 
-            
+
             SetUpPlayers();
 
             //load the map content images brick/water/stone/life/coin
@@ -138,7 +139,7 @@ namespace TankGame{
             DrawScenery();
             DrawPlayers();
             spriteBatch.End();
-            
+
 
             base.Draw(gameTime);
         }
@@ -147,57 +148,58 @@ namespace TankGame{
         {
             Rectangle screenRectangle = new Rectangle(0, 0, gridWidth, gridHeight);
             spriteBatch.Draw(backgroundTexture, screenRectangle, Color.White);
-            
+
         }
 
-         private void SetUpPlayers()
-         {
-             Color[] playerColors = new Color[10];
-             playerColors[0] = Color.Red;
-             playerColors[1] = Color.Green;
-             playerColors[2] = Color.Blue;
-             playerColors[3] = Color.Purple;
-             playerColors[4] = Color.Orange;
-             playerColors[5] = Color.Indigo;
-             playerColors[6] = Color.Yellow;
-             playerColors[7] = Color.SaddleBrown;
-             playerColors[8] = Color.Tomato;
-             playerColors[9] = Color.Turquoise;
- 
-             players = new PlayerData[numberOfPlayers];
-             for (int i = 0; i < numberOfPlayers; i++)
-             {
-                 players[i].IsAlive = true;
-                 players[i].Color = playerColors[i];
-                 players[i].Angle = MathHelper.ToRadians(90);
-                 players[i].Power = 100;
-             }
- 
-             players[0].Position = new Vector2(100, 193);
-             players[1].Position = new Vector2(200, 212);
-             players[2].Position = new Vector2(300, 361);
-             players[3].Position = new Vector2(400, 164);
-         }
+        private void SetUpPlayers()
+        {
+            Color[] playerColors = new Color[10];
+            playerColors[0] = Color.Red;
+            playerColors[1] = Color.Green;
+            playerColors[2] = Color.Blue;
+            playerColors[3] = Color.Purple;
+            playerColors[4] = Color.Orange;
+            playerColors[5] = Color.Indigo;
+            playerColors[6] = Color.Yellow;
+            playerColors[7] = Color.SaddleBrown;
+            playerColors[8] = Color.Tomato;
+            playerColors[9] = Color.Turquoise;
+
+            players = new PlayerData[numberOfPlayers];
+            for (int i = 0; i < numberOfPlayers; i++)
+            {
+                players[i].IsAlive = true;
+                players[i].Color = playerColors[i];
+                players[i].Angle = MathHelper.ToRadians(90);
+                players[i].Power = 100;
+            }
+
+            players[0].Position = new Vector2(100, 193);
+            players[1].Position = new Vector2(200, 212);
+            players[2].Position = new Vector2(300, 361);
+            players[3].Position = new Vector2(400, 164);
+        }
 
         private void DrawPlayers()
-         {
+        {
 
-             foreach (PlayerData player in players)
-             {
-                 if (player.IsAlive)
-                 {
-                     //spriteBatch.Draw(water, player.Position, player.Color);
-                 }
-             }
-         }
+            foreach (PlayerData player in players)
+            {
+                if (player.IsAlive)
+                {
+                    //spriteBatch.Draw(water, player.Position, player.Color);
+                }
+            }
+        }
 
-        private void updateMap() {
+        private void updateMap()
+        {
             for (int i = 0; i < 10; i++)
             {
                 for (int j = 0; j < 10; j++)
                 {
 
-                    Vector2 position = new Vector2(i*50,j*50);
+                    Vector2 position = new Vector2(i * 50, j * 50);
                     //if (map[i, j] == Constant.EMPTY) b = PaintEmptyCell;
                     if (map[i, j] == Constant.WATER) spriteBatch.Draw(water, position, Color.White);
                     if (map[i, j] == Constant.STONE) spriteBatch.Draw(stone, position, Color.White);
