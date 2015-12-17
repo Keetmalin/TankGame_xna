@@ -53,6 +53,10 @@ namespace TankGame
         //create ClientClass variable
         private ClientClass networkClient;
 
+        //will store details of the five players
+        private string[,] playerDetails;
+
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -75,6 +79,14 @@ namespace TankGame
             {
                 for (int j = 0; j < Constant.MAP_SIZE; j++)
                     map[i, j] = Constant.EMPTY;
+            }
+
+            //initialize player details
+            playerDetails = new string[5, 5];
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                    playerDetails[i, j] = "-";
             }
 
             //instantiate message passer
@@ -129,6 +141,7 @@ namespace TankGame
 
             // TODO: Add your update logic here
             map = parser.getMap();
+            playerDetails = parser.getPlayerDetails();
             
 
             startGame();
@@ -174,7 +187,7 @@ namespace TankGame
             {
                 players[i].IsAlive = false;
                 players[i].Color = playerColors[i];
-                players[i].Angle = MathHelper.ToRadians(180);
+                players[i].Angle = MathHelper.ToRadians(0);
                 players[i].Power = 100;
             }
 
@@ -213,11 +226,12 @@ namespace TankGame
                     //    players[k].IsAlive = false;
                     //}
 
-                    if (map[i, j] == Constant.PLAYER_0) { players[0].Position = position; players[0].IsAlive = true; };
-                    if (map[i, j] == Constant.PLAYER_1) { players[1].Position = position; players[1].IsAlive = true; };
-                    if (map[i, j] == Constant.PLAYER_2) { players[2].Position = position; players[2].IsAlive = true; };
-                    if (map[i, j] == Constant.PLAYER_3) { players[3].Position = position; players[3].IsAlive = true; };
-                    if (map[i, j] == Constant.PLAYER_4) { players[4].Position = position; players[4].IsAlive = true; };
+
+                    if (map[i, j] == Constant.PLAYER_0) { players[0].Position = position; players[0].IsAlive = true; setPlayerDirection(playerDetails[0,0] , players[0]); };
+                    if (map[i, j] == Constant.PLAYER_1) { players[1].Position = position; players[1].IsAlive = true; setPlayerDirection(playerDetails[1,0] , players[1]};
+                    if (map[i, j] == Constant.PLAYER_2) { players[2].Position = position; players[2].IsAlive = true; setPlayerDirection(playerDetails[2,0] , players[2]};
+                    if (map[i, j] == Constant.PLAYER_3) { players[3].Position = position; players[3].IsAlive = true; setPlayerDirection(playerDetails[3,0] , players[3]};
+                    if (map[i, j] == Constant.PLAYER_4) { players[4].Position = position; players[4].IsAlive = true; setPlayerDirection(playerDetails[4,0] , players[4]};
  
 
                 }
@@ -249,6 +263,25 @@ namespace TankGame
             }
             if (nextCommand == Constant.SHOOT) { 
                 networkClient.Sender("SHOOT#");
+            }
+        }
+
+        private void setPlayerDirection(String direction , PlayerData player) {
+            if (direction.Equals(Constant.NORTH))
+            {
+                player.Angle = MathHelper.ToRadians(0);
+            }
+            if (direction.Equals(Constant.EAST))
+            {
+                player.Angle = MathHelper.ToRadians(90);
+            }
+            if (direction.Equals(Constant.SOUTH))
+            {
+                player.Angle = MathHelper.ToRadians(180);
+            }
+            if (direction.Equals(Constant.WEST))
+            {
+                player.Angle = MathHelper.ToRadians(270);
             }
         }
     }
