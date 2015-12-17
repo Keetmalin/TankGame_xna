@@ -34,6 +34,10 @@ namespace TankGame
         //True if game is alive. False if otherwise
         private Boolean gameRunning = true;
 
+
+        public static int myLocatoin = 0;
+        public static List<int> coinLocations;
+
         //constructor for MsgParser class
         public MsgParser()
         {
@@ -174,6 +178,10 @@ namespace TankGame
                     String direction = players[2];
                     map[Int32.Parse(x), Int32.Parse(y)] = playerName;
 
+                    //myPlayer location
+                    myLocatoin = (10 * ToInt32(x)) + ToInt32(y);
+
+
                     int p = 0;
                     if (playerName.Equals(Constant.PLAYER_0)) { p = 0; }
                     else if (playerName.Equals(Constant.PLAYER_1)) { p = 1; }
@@ -272,23 +280,6 @@ namespace TankGame
                     else if (playerName.Equals(Constant.PLAYER_3)) { p = 3; }
                     else if (playerName.Equals(Constant.PLAYER_4)) { p = 4; }
 
-                    //if (direction.Equals(Constant.NORTH))
-                    //{
-                    //    direction = "NORTH";
-                    //}
-                    //if (direction.Equals(Constant.EAST))
-                    //{
-                    //    direction = "EAST";
-                    //}
-                    //if (direction.Equals(Constant.SOUTH))
-                    //{
-                    //    direction = "SOUTH";
-                    //}
-                    //if (direction.Equals(Constant.WEST))
-                    //{
-                    //    direction = "WEST";
-                    //}
-
                     playerDetails[p, 0] = direction;
                     playerDetails[p, 1] = shot;
                     playerDetails[p, 2] = health;
@@ -345,8 +336,8 @@ namespace TankGame
                 String value = splitString[3];
                 map[Int32.Parse(x), Int32.Parse(y)] = Constant.COIN;
                 mapHealth[Int32.Parse(x), Int32.Parse(y)] = value;
-
-
+                
+                coinLocations.Add((10 * ToInt32(x)) + ToInt32(y));
             }
             if (identifier.Equals("L"))
             {
@@ -359,6 +350,11 @@ namespace TankGame
             }
 
 
+        }
+
+        private int ToInt32(object p)
+        {
+            throw new NotImplementedException();
         }
 
 

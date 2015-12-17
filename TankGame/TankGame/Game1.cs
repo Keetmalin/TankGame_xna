@@ -59,6 +59,9 @@ namespace TankGame
         //to display the text
         SpriteFont font;
 
+        public static int myLocatoin = 0;
+        public static List<int> coinLocations;
+
 
         public Game1()
         {

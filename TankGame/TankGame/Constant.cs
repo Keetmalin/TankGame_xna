@@ -104,4 +104,16 @@ namespace TankGame
         Left = 3,
 
     }
+
+    enum CellType
+    {
+        Tank,
+        Brick,
+        Stone,
+        Water,
+        Bullet,
+        CoinPile,
+        Lifepack,
+        Empty
+    }
 }

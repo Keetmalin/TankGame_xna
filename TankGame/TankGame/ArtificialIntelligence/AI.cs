@@ -7,6 +7,12 @@ namespace TankGame.ArtificialIntelligence
 {
     class AI
     {
+
+        public AI()
+        {
+
+        }
+
         public string nextCommand()
         //method to generate the next command to be sent to the server
         {
