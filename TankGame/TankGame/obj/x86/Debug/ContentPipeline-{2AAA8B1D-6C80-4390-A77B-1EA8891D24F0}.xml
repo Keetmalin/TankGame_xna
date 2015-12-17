@@ -8,25 +8,52 @@
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
       <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2015-12-17T10:50:52.5540141+05:30</Time>
+      <Time>2015-12-17T17:21:39.938388+05:30</Time>
     </Item>
     <Item>
-      <Source>tankImage.png</Source>
-      <Name>tankImage</Name>
+      <Source>life.png</Source>
+      <Name>life</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\tankImage.xnb</Output>
-      <Time>2015-12-17T11:25:41.8468269+05:30</Time>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\life.xnb</Output>
+      <Time>2015-12-17T17:06:38.0786521+05:30</Time>
     </Item>
     <Item>
-      <Source>brickWall.jpg</Source>
-      <Name>brickWall</Name>
+      <Source>coin.png</Source>
+      <Name>coin</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\brickWall.xnb</Output>
-      <Time>2015-12-17T15:08:17.0307787+05:30</Time>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\coin.xnb</Output>
+      <Time>2015-12-17T17:10:39.6839929+05:30</Time>
+    </Item>
+    <Item>
+      <Source>water.jpg</Source>
+      <Name>water</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\water.xnb</Output>
+      <Time>2015-12-17T17:28:36.6289824+05:30</Time>
+    </Item>
+    <Item>
+      <Source>brick.jpg</Source>
+      <Name>brick</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\brick.xnb</Output>
+      <Time>2015-12-17T17:28:58.7151801+05:30</Time>
+    </Item>
+    <Item>
+      <Source>stone.png</Source>
+      <Name>stone</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\stone.xnb</Output>
+      <Time>2015-12-17T17:32:35.3059275+05:30</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>

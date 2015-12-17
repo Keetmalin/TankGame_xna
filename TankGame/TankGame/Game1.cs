@@ -36,11 +36,21 @@ namespace TankGame{
         PlayerData[] players;
         int numberOfPlayers = 4;
 
+        //create textures for brick/water/stone/life/coin
+        Texture2D brick;
+        Texture2D water;
+        Texture2D stone;
+        Texture2D life;
+        Texture2D coin;
+
         //will update the GUI at the initiation
         private string[,] map;
 
         //create parser to get msg parsed
         private MsgParser parser;
+
+        //create ClientClass variable
+        private ClientClass networkClient;
 
         public Game1()
         {
@@ -68,6 +78,8 @@ namespace TankGame{
 
             //instantiate message passer
             parser = new MsgParser();
+            //instantiate network client
+            networkClient = new ClientClass(parser);
 
 
             base.Initialize();
@@ -86,8 +98,15 @@ namespace TankGame{
             gridWidth = 500;
             gridHeight = 500;
 
-            tankImage = Content.Load<Texture2D> ("brickWall");
+            
             SetUpPlayers();
+
+            //load the map content images brick/water/stone/life/coin
+            brick = Content.Load<Texture2D>("brick");
+            water = Content.Load<Texture2D>("water");
+            stone = Content.Load<Texture2D>("stone");
+            life = Content.Load<Texture2D>("life");
+            coin = Content.Load<Texture2D>("coin");
         }
 
 
@@ -103,6 +122,8 @@ namespace TankGame{
                 this.Exit();
 
             // TODO: Add your update logic here
+            map = parser.getMap();
+            updateMap();
 
             base.Update(gameTime);
         }
@@ -165,13 +186,32 @@ namespace TankGame{
              {
                  if (player.IsAlive)
                  {
-                     spriteBatch.Draw(tankImage, player.Position, player.Color);
+                     //spriteBatch.Draw(water, player.Position, player.Color);
                  }
              }
          }
 
-        private void updateBricks() { 
-        
+        private void updateMap() {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+
+                    Vector2 position = new Vector2(i*50,j*50);
+                    //if (map[i, j] == Constant.EMPTY) b = PaintEmptyCell;
+                    if (map[i, j] == Constant.WATER) spriteBatch.Draw(water, position, Color.White);
+                    if (map[i, j] == Constant.STONE) spriteBatch.Draw(stone, position, Color.White);
+                    if (map[i, j] == Constant.BRICK) spriteBatch.Draw(brick, position, Color.White);
+                    if (map[i, j] == Constant.LIFE) spriteBatch.Draw(life, position, Color.White);
+                    if (map[i, j] == Constant.COIN) spriteBatch.Draw(coin, position, Color.White);
+                    //if (map[i, j] == Constant.PLAYER_0) b = PaintP0Cell;
+                    //if (map[i, j] == Constant.PLAYER_1) b = PaintP1Cell;
+                    //if (map[i, j] == Constant.PLAYER_2) b = PaintP2Cell;
+                    //if (map[i, j] == Constant.PLAYER_3) b = PaintP3Cell;
+                    //if (map[i, j] == Constant.PLAYER_4) b = PaintP4Cell;
+
+                }
+            }
         }
     }
 }
