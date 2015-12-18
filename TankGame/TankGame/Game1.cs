@@ -30,6 +30,8 @@ namespace TankGame
 
         Texture2D backgroundTexture;
         Texture2D background1;
+        Texture2D start;
+        Texture2D startButton;
 
         int gridWidth;
         int gridHeight;
@@ -59,6 +61,9 @@ namespace TankGame
 
         //will store details of the five players
         private string[,] playerDetails;
+
+        //will store the brick health and coin time
+        private string[,] mapHealth;
 
         //to display the text
         SpriteFont font;
@@ -99,6 +104,14 @@ namespace TankGame
                     playerDetails[i, j] = "-";
             }
 
+            //initialize map health
+            mapHealth = new string[Constant.MAP_SIZE, Constant.MAP_SIZE];
+            for (int i = 0; i < Constant.MAP_SIZE; i++)
+            {
+                for (int j = 0; j < Constant.MAP_SIZE; j++)
+                    mapHealth[i, j] = Constant.EMPTY;
+            }
+
             //instantiate message passer
             parser = new MsgParser();
             //instantiate network client
@@ -121,6 +134,9 @@ namespace TankGame
             screenWidth = device.PresentationParameters.BackBufferWidth;
             screenHeight = device.PresentationParameters.BackBufferHeight;
             background1 = Content.Load<Texture2D>("background1");
+
+            start = Content.Load<Texture2D>("start");
+            startButton = Content.Load<Texture2D>("startButton");
             //foregroundTexture = Content.Load<Texture2D>("foreground");
             gridWidth = 500;
             gridHeight = 500;
@@ -141,7 +157,7 @@ namespace TankGame
             life = Content.Load<Texture2D>("life");
             coin = Content.Load<Texture2D>("coin");
             tank = Content.Load<Texture2D>("tank");
-            //networkClient.Sender("JOIN#");
+            networkClient.Sender("JOIN#");
 
 
                     
@@ -162,7 +178,7 @@ namespace TankGame
             // TODO: Add your update logic here
             map = parser.getMap();
             playerDetails = parser.getPlayerDetails();
-            
+            mapHealth = parser.getMapHealth();
 
             startGame();
 
@@ -197,6 +213,13 @@ namespace TankGame
             
             Rectangle screenRectangle2 = new Rectangle(550, 200, 400, 200);
             spriteBatch.Draw(table, screenRectangle2 , Color.White);
+
+            Rectangle screenRectangle4 = new Rectangle(600, 500, 60, 60);
+            spriteBatch.Draw(start, screenRectangle4, Color.White);
+
+            Rectangle screenRectangle5 = new Rectangle(650, 505, 90, 40);
+            spriteBatch.Draw(startButton, screenRectangle5, Color.White);
+
 
         }
 
@@ -242,7 +265,7 @@ namespace TankGame
                 for (int j = 0; j < 10; j++)
                 {
 
-                    Vector2 position = new Vector2(i * 50, j * 50 +50);
+                    Vector2 position = new Vector2(i * 50, j * 50 +150);
                     
                     if (map[i, j] == Constant.WATER) spriteBatch.Draw(water, position, Color.White);
                     if (map[i, j] == Constant.STONE) spriteBatch.Draw(stone, position, Color.White);
@@ -328,7 +351,16 @@ namespace TankGame
                     spriteBatch.DrawString(font, playerDetails[j, i], new Vector2(625 + 68 * i, 252 + 28 * j), Color.Blue);
                 }
             }
+            for (int i = 0; i < Constant.MAP_SIZE; i++)
+            {
+                for (int j = 0; j < Constant.MAP_SIZE; j++)
+                {
+                    spriteBatch.DrawString(font, mapHealth[i, j], new Vector2( i*50 +5 , 160 + 50 * j), Color.Aqua);
+                }
+            }
         }
+
+        
 
 
     }
