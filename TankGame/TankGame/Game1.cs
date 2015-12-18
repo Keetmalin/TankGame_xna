@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Tanks_Client;
+using TankGame.ArtificialIntelligence;
 
 namespace TankGame
 {
@@ -71,8 +72,11 @@ namespace TankGame
         //import table image
         Texture2D table;
 
-        public static int myLocation;
-        public static List<int> coinLocations;
+        //public static int myLocation;
+        //public static List<int> coinLocations;
+
+        //implement AI class
+        AI aiObject = new AI();
 
         public Game1()
         {
@@ -181,7 +185,7 @@ namespace TankGame
             map = parser.getMap();
             playerDetails = parser.getPlayerDetails();
             mapHealth = parser.getMapHealth();
-
+            updateMoves();
             startGame();
 
             base.Update(gameTime);
@@ -255,7 +259,7 @@ namespace TankGame
                 if (player.IsAlive)
                 {
                     //spriteBatch.Draw(tank, player.Position,  player.Color);
-                    spriteBatch.Draw(tank, player.Position, null, player.Color, player.Angle, new Vector2(0, 0), 1, SpriteEffects.None, 1);
+                    spriteBatch.Draw(tank, player.Position, null, Color.White, player.Angle, new Vector2(0, 0), 1, SpriteEffects.None, 1);
                 }
             }
         }
@@ -301,23 +305,25 @@ namespace TankGame
 
         private void updateMoves() {
             
-            String nextCommand = "";
+            String nextCommand = aiObject.nextCommand();
 
-            if (nextCommand == Constant.UP) {
-                networkClient.Sender("UP#");
-            }
-            if (nextCommand == Constant.DOWN) {
-                networkClient.Sender("DOWN#");
-            }
-            if (nextCommand == Constant.LEFT) {
-                networkClient.Sender("LEFT#");
-            }
-            if (nextCommand == Constant.RIGHT) {
-                networkClient.Sender("RIGHT#");
-            }
-            if (nextCommand == Constant.SHOOT) { 
-                networkClient.Sender("SHOOT#");
-            }
+            networkClient.Sender(nextCommand);
+
+            //if (nextCommand == Constant.UP) {
+            //    networkClient.Sender("UP#");
+            //}
+            //if (nextCommand == Constant.DOWN) {
+            //    networkClient.Sender("DOWN#");
+            //}
+            //if (nextCommand == Constant.LEFT) {
+            //    networkClient.Sender("LEFT#");
+            //}
+            //if (nextCommand == Constant.RIGHT) {
+            //    networkClient.Sender("RIGHT#");
+            //}
+            //if (nextCommand == Constant.SHOOT) { 
+            //    networkClient.Sender("SHOOT#");
+            //}
         }
 
         private void setPlayerDirection(String direction , int index) {

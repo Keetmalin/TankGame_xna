@@ -12,7 +12,7 @@ namespace TankGame
     {
 
         //will store locations sent by each msg
-        private string[,] map;
+        public static string[,] map;
 
         //will store details of the five players
         private string[,] playerDetails;
@@ -35,12 +35,13 @@ namespace TankGame
         private Boolean gameRunning = true;
 
 
-        public static int myLocation;
-        public static List<int> coinLocations;
+        public static int myLocation =0;
+        public static List<int> coinLocations =  new List<int>();
 
         //constructor for MsgParser class
         public MsgParser()
         {
+
             thread = new Thread(new ThreadStart(msgProcessor));
             thread.Start();
 
@@ -99,7 +100,7 @@ namespace TankGame
                         for (int j = 0; j < Constant.MAP_SIZE; j++)
                         {
                             if(map[i,j]=="C")
-                                coinLocations.Add((10 * ToInt32(i)) + ToInt32(j));
+                                coinLocations.Add((10 * (i)) + (j));
                         }
                     }
 
@@ -190,7 +191,7 @@ namespace TankGame
                     map[Int32.Parse(x), Int32.Parse(y)] = playerName;
 
                     //myPlayer location
-                    myLocation = (10 * ToInt32(x)) + ToInt32(y);
+                    myLocation = (10 * Int32.Parse(x)) + Int32.Parse(y);
 
 
                     int p = 0;
@@ -363,10 +364,6 @@ namespace TankGame
 
         }
 
-        private int ToInt32(object p)
-        {
-            throw new NotImplementedException();
-        }
 
 
 
