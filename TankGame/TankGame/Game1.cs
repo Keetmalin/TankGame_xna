@@ -71,6 +71,8 @@ namespace TankGame
         //import table image
         Texture2D table;
 
+        public static int myLocation;
+        public static List<int> coinLocations;
 
         public Game1()
         {

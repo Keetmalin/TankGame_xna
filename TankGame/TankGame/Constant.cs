@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Tanks_Client
+namespace TankGame
 {
     /// <summary>
     /// Defined Constants of the Game
@@ -94,5 +94,26 @@ namespace Tanks_Client
         //        public static int AI_FACTOR = int.Parse(ConfigurationManager.AppSettings.Get("AI"));
 
         #endregion
+    }
+
+    public enum DirectionConstants
+    {
+        Up = 0,
+        Right = 1,
+        Down = 2,
+        Left = 3,
+
+    }
+
+    enum CellType
+    {
+        Tank,
+        Brick,
+        Stone,
+        Water,
+        Bullet,
+        CoinPile,
+        Lifepack,
+        Empty
     }
 }

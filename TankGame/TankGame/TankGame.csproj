@@ -72,6 +72,8 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ArtificialIntelligence\AI.cs" />
+    <Compile Include="ArtificialIntelligence\PathFinder.cs" />
     <Compile Include="ClientClass.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="DataType\MsgObject.cs" />
@@ -114,6 +116,7 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

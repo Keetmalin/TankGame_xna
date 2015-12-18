@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Tanks_Client.DataType;
 
-namespace Tanks_Client
+namespace TankGame
 {
     class MsgParser
     {
@@ -33,6 +33,10 @@ namespace Tanks_Client
 
         //True if game is alive. False if otherwise
         private Boolean gameRunning = true;
+
+
+        public static int myLocation;
+        public static List<int> coinLocations;
 
         //constructor for MsgParser class
         public MsgParser()
@@ -86,6 +90,17 @@ namespace Tanks_Client
                     {
                         //if the server response is an update to the GUI
                         messageDeoder(msg);
+                    }
+
+                    //clears the coins list and update-Shanika
+                    coinLocations.Clear();
+                    for (int i = 0; i < Constant.MAP_SIZE; i++)
+                    {
+                        for (int j = 0; j < Constant.MAP_SIZE; j++)
+                        {
+                            if(map[i,j]=="C")
+                                coinLocations.Add((10 * ToInt32(i)) + ToInt32(j));
+                        }
                     }
 
                 }
@@ -173,6 +188,10 @@ namespace Tanks_Client
                     String y = players[1].Split(',')[1];
                     String direction = players[2];
                     map[Int32.Parse(x), Int32.Parse(y)] = playerName;
+
+                    //myPlayer location
+                    myLocation = (10 * ToInt32(x)) + ToInt32(y);
+
 
                     int p = 0;
                     if (playerName.Equals(Constant.PLAYER_0)) { p = 0; }
@@ -272,23 +291,6 @@ namespace Tanks_Client
                     else if (playerName.Equals(Constant.PLAYER_3)) { p = 3; }
                     else if (playerName.Equals(Constant.PLAYER_4)) { p = 4; }
 
-                    //if (direction.Equals(Constant.NORTH))
-                    //{
-                    //    direction = "NORTH";
-                    //}
-                    //if (direction.Equals(Constant.EAST))
-                    //{
-                    //    direction = "EAST";
-                    //}
-                    //if (direction.Equals(Constant.SOUTH))
-                    //{
-                    //    direction = "SOUTH";
-                    //}
-                    //if (direction.Equals(Constant.WEST))
-                    //{
-                    //    direction = "WEST";
-                    //}
-
                     playerDetails[p, 0] = direction;
                     playerDetails[p, 1] = shot;
                     playerDetails[p, 2] = health;
@@ -345,8 +347,8 @@ namespace Tanks_Client
                 String value = splitString[3];
                 map[Int32.Parse(x), Int32.Parse(y)] = Constant.COIN;
                 mapHealth[Int32.Parse(x), Int32.Parse(y)] = value;
-
-
+                
+                
             }
             if (identifier.Equals("L"))
             {
@@ -359,6 +361,11 @@ namespace Tanks_Client
             }
 
 
+        }
+
+        private int ToInt32(object p)
+        {
+            throw new NotImplementedException();
         }
 
 

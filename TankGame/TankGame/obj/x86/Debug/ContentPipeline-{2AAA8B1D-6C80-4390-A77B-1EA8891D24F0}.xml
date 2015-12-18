@@ -56,15 +56,6 @@
       <Time>2015-12-17T19:49:01.3266621+05:30</Time>
     </Item>
     <Item>
-      <Source>myFont.spritefont</Source>
-      <Name>myFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\myFont.xnb</Output>
-      <Time>2015-12-18T00:30:41.2903895+05:30</Time>
-    </Item>
-    <Item>
       <Source>table.png</Source>
       <Name>table</Name>
       <Importer>TextureImporter</Importer>
@@ -108,6 +99,15 @@
       <Options>None</Options>
       <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\startButton.xnb</Output>
       <Time>2015-12-18T00:48:58.6559407+05:30</Time>
+    </Item>
+    <Item>
+      <Source>myFont.spritefont</Source>
+      <Name>myFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\myFont.xnb</Output>
+      <Time>2015-12-18T00:30:41.2903895+05:30</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
