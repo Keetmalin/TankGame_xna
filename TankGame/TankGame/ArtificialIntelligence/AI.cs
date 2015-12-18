@@ -28,7 +28,7 @@ namespace TankGame.ArtificialIntelligence
 
             int currentLoc = PathFinder.myLocation;
             int destination = currentLoc;
-            int distanceToTravel = 100;
+            int distanceToTravel = 99;
 
             foreach (int coinLoc in PathFinder.coinLocations)
             {

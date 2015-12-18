@@ -7,9 +7,9 @@ namespace TankGame.ArtificialIntelligence
 {
     class PathFinder
     {
-        public static int myLocation;
-        public static List<int> coinLocations;
-        private static string[,] map;
+        public static int myLocation = MsgParser.myLocation;
+        public static List<int> coinLocations = MsgParser.coinLocations;
+        private static string[,] map = MsgParser.map;
 
         //-------Method to find shortest path
         public static List<int> findPath(int from, int to)
@@ -27,6 +27,7 @@ namespace TankGame.ArtificialIntelligence
 
             while (queue.Count > 0)
             {
+
                 int block = queue.Dequeue();
                 int i = block / 10, j = block % 10;
 

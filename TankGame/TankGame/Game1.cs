@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Tanks_Client;
+using TankGame.ArtificialIntelligence;
 
 namespace TankGame
 {
@@ -29,9 +30,15 @@ namespace TankGame
         GraphicsDevice device;
 
         Texture2D backgroundTexture;
+        Texture2D background1;
+        Texture2D start;
+        Texture2D startButton;
 
         int gridWidth;
         int gridHeight;
+        int screenWidth;
+        int screenHeight;
+
 
         Texture2D tank;
         PlayerData[] players;
@@ -56,12 +63,20 @@ namespace TankGame
         //will store details of the five players
         private string[,] playerDetails;
 
+        //will store the brick health and coin time
+        private string[,] mapHealth;
+
         //to display the text
         SpriteFont font;
 
-        public static int myLocation;
-        public static List<int> coinLocations;
+        //import table image
+        Texture2D table;
 
+        //public static int myLocation;
+        //public static List<int> coinLocations;
+
+        //implement AI class
+        AI aiObject = new AI();
 
         public Game1()
         {
@@ -74,7 +89,7 @@ namespace TankGame
         {
             // TODO: Add your initialization logic here
             graphics.PreferredBackBufferWidth = 1000;
-            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferHeight = 650;
             graphics.IsFullScreen = false;
             graphics.ApplyChanges();
             Window.Title = "Armored Warfare";
@@ -95,6 +110,14 @@ namespace TankGame
                     playerDetails[i, j] = "-";
             }
 
+            //initialize map health
+            mapHealth = new string[Constant.MAP_SIZE, Constant.MAP_SIZE];
+            for (int i = 0; i < Constant.MAP_SIZE; i++)
+            {
+                for (int j = 0; j < Constant.MAP_SIZE; j++)
+                    mapHealth[i, j] = Constant.EMPTY;
+            }
+
             //instantiate message passer
             parser = new MsgParser();
             //instantiate network client
@@ -113,6 +136,13 @@ namespace TankGame
             // TODO: use this.Content to load your game content here
             device = graphics.GraphicsDevice;
             backgroundTexture = Content.Load<Texture2D>("background");
+
+            screenWidth = device.PresentationParameters.BackBufferWidth;
+            screenHeight = device.PresentationParameters.BackBufferHeight;
+            background1 = Content.Load<Texture2D>("background1");
+
+            start = Content.Load<Texture2D>("start");
+            startButton = Content.Load<Texture2D>("startButton");
             //foregroundTexture = Content.Load<Texture2D>("foreground");
             gridWidth = 500;
             gridHeight = 500;
@@ -123,6 +153,9 @@ namespace TankGame
             //import font 
             font = Content.Load<SpriteFont>("myFont");
 
+            //import table image
+            table = Content.Load<Texture2D>("table");
+
             //load the map content images brick/water/stone/life/coin
             brick = Content.Load<Texture2D>("brick");
             water = Content.Load<Texture2D>("water");
@@ -130,7 +163,7 @@ namespace TankGame
             life = Content.Load<Texture2D>("life");
             coin = Content.Load<Texture2D>("coin");
             tank = Content.Load<Texture2D>("tank");
-            //networkClient.Sender("JOIN#");
+            networkClient.Sender("JOIN#");
 
 
                     
@@ -151,8 +184,8 @@ namespace TankGame
             // TODO: Add your update logic here
             map = parser.getMap();
             playerDetails = parser.getPlayerDetails();
-            
-
+            mapHealth = parser.getMapHealth();
+            updateMoves();
             startGame();
 
             base.Update(gameTime);
@@ -168,7 +201,7 @@ namespace TankGame
             DrawScenery();
             DrawPlayers();
             updateMap();
-            DrawText();
+            updateTable();
             spriteBatch.End();
             
 
@@ -177,8 +210,22 @@ namespace TankGame
 
         private void DrawScenery()
         {
-            Rectangle screenRectangle = new Rectangle(0, 0, gridWidth, gridHeight);
+
+            Rectangle screenRectangle3 = new Rectangle(0, -50, screenWidth, screenHeight+50);
+            spriteBatch.Draw(background1, screenRectangle3, Color.White);
+
+            Rectangle screenRectangle = new Rectangle(0, 150, gridWidth, gridHeight);
             spriteBatch.Draw(backgroundTexture, screenRectangle, Color.White);
+            
+            Rectangle screenRectangle2 = new Rectangle(550, 200, 400, 200);
+            spriteBatch.Draw(table, screenRectangle2 , Color.White);
+
+            Rectangle screenRectangle4 = new Rectangle(600, 500, 60, 60);
+            spriteBatch.Draw(start, screenRectangle4, Color.White);
+
+            Rectangle screenRectangle5 = new Rectangle(650, 505, 90, 40);
+            spriteBatch.Draw(startButton, screenRectangle5, Color.White);
+
 
         }
 
@@ -212,7 +259,7 @@ namespace TankGame
                 if (player.IsAlive)
                 {
                     //spriteBatch.Draw(tank, player.Position,  player.Color);
-                    spriteBatch.Draw(tank, player.Position, null, player.Color, player.Angle, new Vector2(0, 0), 1, SpriteEffects.None, 1);
+                    spriteBatch.Draw(tank, player.Position, null, Color.White, player.Angle, new Vector2(0, 0), 1, SpriteEffects.None, 1);
                 }
             }
         }
@@ -224,7 +271,7 @@ namespace TankGame
                 for (int j = 0; j < 10; j++)
                 {
 
-                    Vector2 position = new Vector2(i * 50, j * 50);
+                    Vector2 position = new Vector2(i * 50, j * 50 +150);
                     
                     if (map[i, j] == Constant.WATER) spriteBatch.Draw(water, position, Color.White);
                     if (map[i, j] == Constant.STONE) spriteBatch.Draw(stone, position, Color.White);
@@ -258,23 +305,25 @@ namespace TankGame
 
         private void updateMoves() {
             
-            String nextCommand = "";
+            String nextCommand = aiObject.nextCommand();
 
-            if (nextCommand == Constant.UP) {
-                networkClient.Sender("UP#");
-            }
-            if (nextCommand == Constant.DOWN) {
-                networkClient.Sender("DOWN#");
-            }
-            if (nextCommand == Constant.LEFT) {
-                networkClient.Sender("LEFT#");
-            }
-            if (nextCommand == Constant.RIGHT) {
-                networkClient.Sender("RIGHT#");
-            }
-            if (nextCommand == Constant.SHOOT) { 
-                networkClient.Sender("SHOOT#");
-            }
+            networkClient.Sender(nextCommand);
+
+            //if (nextCommand == Constant.UP) {
+            //    networkClient.Sender("UP#");
+            //}
+            //if (nextCommand == Constant.DOWN) {
+            //    networkClient.Sender("DOWN#");
+            //}
+            //if (nextCommand == Constant.LEFT) {
+            //    networkClient.Sender("LEFT#");
+            //}
+            //if (nextCommand == Constant.RIGHT) {
+            //    networkClient.Sender("RIGHT#");
+            //}
+            //if (nextCommand == Constant.SHOOT) { 
+            //    networkClient.Sender("SHOOT#");
+            //}
         }
 
         private void setPlayerDirection(String direction , int index) {
@@ -296,12 +345,31 @@ namespace TankGame
             //}
         }
 
-        private void DrawText()
+        private void updateTable()
         {
             
             
-            spriteBatch.DrawString(font, "Cannon angle: " , new Vector2(20, 20), Color.White);
-            spriteBatch.DrawString(font, "Cannon power: " , new Vector2(20, 45), Color.White);
+            //spriteBatch.DrawString(font, "Cannon angle: " , new Vector2(600, 100), Color.Blue);
+            //spriteBatch.DrawString(font, "Cannon power: ", new Vector2(600, 200), Color.Blue);
+
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    spriteBatch.DrawString(font, playerDetails[j, i], new Vector2(625 + 68 * i, 252 + 28 * j), Color.Blue);
+                }
+            }
+            for (int i = 0; i < Constant.MAP_SIZE; i++)
+            {
+                for (int j = 0; j < Constant.MAP_SIZE; j++)
+                {
+                    spriteBatch.DrawString(font, mapHealth[i, j], new Vector2( i*50 +5 , 160 + 50 * j), Color.Aqua);
+                }
+            }
         }
+
+        
+
+
     }
 }

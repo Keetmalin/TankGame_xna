@@ -2,21 +2,12 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>background.png</Source>
-      <Name>background</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\background.xnb</Output>
-      <Time>2015-12-17T17:49:48+05:30</Time>
-    </Item>
-    <Item>
       <Source>brick.jpg</Source>
       <Name>brick</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\brick.xnb</Output>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\brick.xnb</Output>
       <Time>2015-12-17T17:49:48+05:30</Time>
     </Item>
     <Item>
@@ -25,7 +16,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\coin.xnb</Output>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\coin.xnb</Output>
       <Time>2015-12-17T17:49:48+05:30</Time>
     </Item>
     <Item>
@@ -34,7 +25,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\life.xnb</Output>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\life.xnb</Output>
       <Time>2015-12-17T17:49:48+05:30</Time>
     </Item>
     <Item>
@@ -43,7 +34,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\stone.xnb</Output>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\stone.xnb</Output>
       <Time>2015-12-17T17:49:48+05:30</Time>
     </Item>
     <Item>
@@ -52,7 +43,7 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\water.xnb</Output>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\water.xnb</Output>
       <Time>2015-12-17T17:49:48+05:30</Time>
     </Item>
     <Item>
@@ -61,8 +52,53 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\tank.xnb</Output>
-      <Time>2015-12-17T19:49:02+05:30</Time>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\tank.xnb</Output>
+      <Time>2015-12-17T19:49:01.3266621+05:30</Time>
+    </Item>
+    <Item>
+      <Source>table.png</Source>
+      <Name>table</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\table.xnb</Output>
+      <Time>2015-12-17T21:44:48.9474995+05:30</Time>
+    </Item>
+    <Item>
+      <Source>background1.jpg</Source>
+      <Name>background1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\background1.xnb</Output>
+      <Time>2015-12-17T23:34:12.1672375+05:30</Time>
+    </Item>
+    <Item>
+      <Source>background.png</Source>
+      <Name>background</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\background.xnb</Output>
+      <Time>2015-12-18T00:19:52.6015479+05:30</Time>
+    </Item>
+    <Item>
+      <Source>start.png</Source>
+      <Name>start</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\start.xnb</Output>
+      <Time>2015-12-18T00:45:28.7838507+05:30</Time>
+    </Item>
+    <Item>
+      <Source>startButton.png</Source>
+      <Name>startButton</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\startButton.xnb</Output>
+      <Time>2015-12-18T00:48:58.6559407+05:30</Time>
     </Item>
     <Item>
       <Source>myFont.spritefont</Source>
@@ -70,8 +106,8 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\myFont.xnb</Output>
-      <Time>2015-12-17T21:40:05.1147022+05:30</Time>
+      <Output>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\myFont.xnb</Output>
+      <Time>2015-12-18T00:30:41.2903895+05:30</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -80,10 +116,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGameContent\</RootDirectory>
-      <LoggerRootDirectory>D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\</LoggerRootDirectory>
-      <IntermediateDirectory>D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>D:\University\Semester4\PC2\Project\TankGame_xna\TankGame\TankGame\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGameContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\KeetMalin\Documents\Visual Studio 2013\Projects\PC2Decoder\TankGame\TankGame\TankGame\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -112,7 +148,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\WINDOWS\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2015-11-12T14:23:06.4097964+05:30</Value>
+        <Value>2015-12-14T05:31:56.2614211+05:30</Value>
       </Assembly>
     </Assemblies>
   </Asset>
