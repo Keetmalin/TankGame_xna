@@ -4,12 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using TankGame.ArtificialIntelligence;
 using Tanks_Client.DataType;
 
 namespace TankGame
 {
     class MsgParser
     {
+
+        public static Stack<String> commandStack = new Stack<String>();
+
+        AI aiObject = new AI();
+
+        private ClientClass networkClient = new ClientClass();
+
+        public static Boolean gameStarted = false;
 
         //will store locations sent by each msg
         public static string[,] map;
@@ -26,7 +35,7 @@ namespace TankGame
         //ClientClass clientObject = new ClientClass();
 
         //this queue will store all the msgs sent by the server
-        private Queue<MsgObject> msgQueue = new Queue<MsgObject>();
+        public static Queue<MsgObject> msgQueue = new Queue<MsgObject>();
 
         //this thread is used to keep parsing msgs as long as the game is connected
         private Thread thread;
@@ -63,6 +72,11 @@ namespace TankGame
                 for (int j = 0; j < Constant.MAP_SIZE; j++)
                     mapHealth[i, j] = "";
             }
+
+            if (!gameStarted)
+            {
+                networkClient.Sender(Constant.C2S_INITIALREQUEST);
+            }
         }
 
 
@@ -73,6 +87,7 @@ namespace TankGame
             {
                 if (msgQueue.Count != 0)
                 {
+
                     MsgObject msgObject = msgQueue.Dequeue();
                     String msg = msgObject.getMessage();
                     DateTime time = msgObject.getTime();
@@ -103,6 +118,11 @@ namespace TankGame
                                 coinLocations.Add((10 * (i)) + (j));
                         }
                     }
+                    //Game1 game = new Game1();
+                    //game.getClient().Sender(aiObject.nextCommand());
+                    //commandStack.Push(aiObject.nextCommand());
+
+                    
 
                 }
 
@@ -180,6 +200,7 @@ namespace TankGame
             //specifies details of the player at the beginning
             if (identifier.Equals("S"))
             {
+                gameStarted = true;
 
                 for (int i = 1; i <= (splitString.Length - 1); i++)
                 {
@@ -222,6 +243,8 @@ namespace TankGame
 
 
                 }
+                networkClient.Sender(aiObject.nextCommand());
+
 
             }
 
@@ -253,6 +276,7 @@ namespace TankGame
                     String y = waterList[i].Split(',')[1];
                     map[Int32.Parse(x), Int32.Parse(y)] = Constant.WATER;
                 }
+                networkClient.Sender(aiObject.nextCommand());
 
 
             }
@@ -336,6 +360,7 @@ namespace TankGame
 
 
                 }
+                networkClient.Sender(aiObject.nextCommand());
 
             }
             if (identifier.Equals("C"))
@@ -459,10 +484,10 @@ namespace TankGame
         }
 
         /*********setter for msgQueue Queue *********/
-        public void addMsg(MsgObject msgObject)
-        {
-            this.msgQueue.Enqueue(msgObject);
-        }
+        //public void addMsg(MsgObject msgObject)
+        //{
+        //    this.msgQueue.Enqueue(msgObject);
+        //}
 
         /********getter for map 2d array**********/
         public string[,] getMap()

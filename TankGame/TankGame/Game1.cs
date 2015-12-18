@@ -58,7 +58,7 @@ namespace TankGame
         private MsgParser parser;
 
         //create ClientClass variable
-        private ClientClass networkClient;
+        //private static ClientClass networkClient;
 
         //will store details of the five players
         private string[,] playerDetails;
@@ -121,7 +121,7 @@ namespace TankGame
             //instantiate message passer
             parser = new MsgParser();
             //instantiate network client
-            networkClient = new ClientClass(parser);
+            //networkClient = new ClientClass(parser);
 
 
             base.Initialize();
@@ -163,7 +163,7 @@ namespace TankGame
             life = Content.Load<Texture2D>("life");
             coin = Content.Load<Texture2D>("coin");
             tank = Content.Load<Texture2D>("tank");
-            networkClient.Sender("JOIN#");
+            //networkClient.Sender("JOIN#");
 
 
                     
@@ -185,7 +185,10 @@ namespace TankGame
             map = parser.getMap();
             playerDetails = parser.getPlayerDetails();
             mapHealth = parser.getMapHealth();
-            updateMoves();
+            if (MsgParser.gameStarted) {
+                //updateMoves();
+            }
+            
             startGame();
 
             base.Update(gameTime);
@@ -297,17 +300,21 @@ namespace TankGame
         }
 
         private void startGame() {
-            KeyboardState keybState = Keyboard.GetState();
-            if (keybState.IsKeyDown(Keys.Space))
-                networkClient.Sender("JOIN#");
+            //KeyboardState keybState = Keyboard.GetState();
+            //if (keybState.IsKeyDown(Keys.Space))
+            //    //networkClient.Sender("JOIN#");
                 
         }
 
         private void updateMoves() {
             
-            String nextCommand = aiObject.nextCommand();
+            //String nextCommand = aiObject.nextCommand();
 
-            networkClient.Sender(nextCommand);
+            //networkClient.Sender(nextCommand);
+
+            if (MsgParser.commandStack.Count != 0) {
+                //networkClient.Sender(MsgParser.commandStack.Pop());
+            }
 
             //if (nextCommand == Constant.UP) {
             //    networkClient.Sender("UP#");
@@ -367,6 +374,7 @@ namespace TankGame
                 }
             }
         }
+
 
         
 

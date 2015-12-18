@@ -29,9 +29,9 @@ namespace TankGame
 
         IPAddress localAddr = IPAddress.Parse("127.0.0.1");
 
-        public ClientClass(MsgParser parser)
+        public ClientClass()
         {
-            this.msgParser = parser;
+            //this.msgParser = parser;
             //constructor will initiate thread which will execute the receive method
             thread = new Thread(new ThreadStart(Receiver));
         }
@@ -87,7 +87,7 @@ namespace TankGame
                 msg = data;
                 //creates a MsgObject object and stores the respectivr values
                 MsgObject msgObject = new MsgObject(msg, DateTime.Now);
-                msgParser.addMsg(msgObject);
+                MsgParser.msgQueue.Enqueue(msgObject);
 
                 streamReceiver.Close();
                 tcpListener.Stop();
