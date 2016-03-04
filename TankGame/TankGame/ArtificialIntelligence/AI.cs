@@ -46,15 +46,19 @@ namespace TankGame.ArtificialIntelligence
 
             List<int> path = PathFinder.findPath(from, to);
 
-            if (path[0] - from == 10)
-                move = "RIGHT#";
-            if (path[0] - from == -10) 
-                move = "LEFT#";
-            if (path[0] - from == 1) 
-                move = "DOWN#";
-            else
-                move = "UP#";
+            try
+            {
+                if (path[0] - from == 10)
+                    move = "RIGHT#";
+                if (path[0] - from == -10)
+                    move = "LEFT#";
+                if (path[0] - from == 1)
+                    move = "DOWN#";
+                else
+                    move = "UP#";
 
+            }
+            catch (ArgumentOutOfRangeException e) { }
             return move;
         }
     }

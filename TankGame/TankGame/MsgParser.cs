@@ -243,7 +243,7 @@ namespace TankGame
 
 
                 }
-                networkClient.Sender(aiObject.nextCommand());
+                //networkClient.Sender(aiObject.nextCommand());
 
 
             }
@@ -276,7 +276,7 @@ namespace TankGame
                     String y = waterList[i].Split(',')[1];
                     map[Int32.Parse(x), Int32.Parse(y)] = Constant.WATER;
                 }
-                networkClient.Sender(aiObject.nextCommand());
+                //networkClient.Sender(aiObject.nextCommand());
 
 
             }
